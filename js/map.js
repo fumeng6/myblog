@@ -1,28 +1,17 @@
-//get请求
+//get请求-调用腾讯的APIkey
 $.ajax({
   type: "get",
   url: "https://apis.map.qq.com/ws/location/v1/ip",
   data: {
-    key: "Z5QBZ-J4WCJ-2Q6FG-XQR25-IXXP7-VAFTJ",// 修改为自己的腾讯APIkey
+    key: "Z5QBZ-J4WCJ-2Q6FG-XQR25-IXXP7-VAFTJ",
     output: "jsonp",
   },
   dataType: "jsonp",
   success: function (res) {
     ipLoacation = res;
+    // console.log(res);//控制台输出请求结果
   },
 });
-// $.ajax({
-//   type: "get",
-//   url: "https://restapi.amap.com/v3/ip",
-//   data: {
-//     key: "e1e099bc03c21354503ba384405d2215", // 替换为你的高德APIkey
-//     output: "JSON",
-//   },
-//   dataType: "JSONP",
-//   success: function (res) {
-//     ipLoacation = res;
-//   },
-// });
 
 function getDistance(e1, n1, e2, n2) {
   const R = 6371;
@@ -42,8 +31,8 @@ function getDistance(e1, n1, e2, n2) {
 
 function showWelcome() {
   let dist = getDistance(
-    104.141848,
-    30.673789,
+    104.10194,
+    30.65984,
     ipLoacation.result.location.lng,
     ipLoacation.result.location.lat
   ); //这里换成自己的经纬度
@@ -244,9 +233,9 @@ function showWelcome() {
     //自定义文本和需要放的位置
     document.getElementById(
       "welcome-info"
-    ).innerHTML = `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:var(--theme-color)">${pos}</span> 的小伙伴，${timeChange}你现在距离猫野约 <span style="color:var(--theme-color)">${dist}</span> 公里，当前的IP地址为： <span style="color:var(--theme-color)">${ip}</span>， ${posdesc}</b>`;
+    ).innerHTML = `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:var(--theme-color)">${pos}</span> 的小伙伴，${timeChange}你现在距离猫野约 <span style="color:var(--theme-color)">${dist}</span> 公里。<center>当前的IP地址<br><span style="color:var(--theme-color)">${ip}</span></center>&emsp;&emsp;${posdesc}</b>`;
   } catch (err) {
-    // console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
+    console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
   }
 }
 window.onload = showWelcome;
