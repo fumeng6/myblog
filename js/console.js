@@ -38,14 +38,13 @@ mmmmmm   mmmmmm   mmmmmm  aaaaaaaaaa  aaaa  ooooooooooo        y:::::y          
   setTimeout(
     console.log.bind(
       console,
-      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n\n`,
       "color:#39c5bb",
       "",
       "color:#39c5bb",
       "color:#39c5bb",
       "",
       "color:#39c5bb",
-      ""
     )
   );
 }
@@ -54,7 +53,6 @@ createtime1();
 
 function createtime2() {
   var ascll2 = [
-    // `NCC2-036`,
     `正在调用前置摄像头~📷`,
     `正在对比人脸库~🧐`,
     `识别为「大聪明」👇`,
@@ -63,7 +61,6 @@ function createtime2() {
   setTimeout(
     console.log.bind(
       console,
-      //   `%c ${ascll2[0]} %c \n${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]} \n${ascll2[4]}`,
       `%c${ascll2[0]} %c\n${ascll2[1]} %c\n${ascll2[2]} %c\n${ascll2[3]}`,
       "color:white; background-color:#10bcc0",
       "",
@@ -101,6 +98,6 @@ function createtime2() {
 createtime2();
 
 // 重写console方法
-console.log = function () {};
-console.error = function () {};
-console.warn = function () {};
+// console.log = function () {};
+// console.error = function () {};
+// console.warn = function () {};

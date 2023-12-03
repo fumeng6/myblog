@@ -7,18 +7,6 @@ function debounce(fn, time) {
   TT = setTimeout(fn, time);
 }
 
-// function debounce(func, wait) {
-//   let timeout;
-//   return function () {
-//     const context = this,
-//       args = arguments;
-//     clearTimeout(timeout);
-//     timeout = setTimeout(function () {
-//       func.apply(context, args);
-//     }, wait);
-//   };
-// }
-
 // 复制提醒
 document.addEventListener("copy", function () {
   debounce(function () {

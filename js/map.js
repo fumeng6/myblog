@@ -9,7 +9,7 @@ $.ajax({
   dataType: "jsonp",
   success: function (res) {
     ipLoacation = res;
-    // console.log(res);//控制台输出请求结果
+    console.log(res);//控制台输出请求结果
   },
 });
 
@@ -235,9 +235,49 @@ function showWelcome() {
       "welcome-info"
     ).innerHTML = `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:var(--theme-color)">${pos}</span> 的小伙伴，${timeChange}你现在距离猫野约 <span style="color:var(--theme-color)">${dist}</span> 公里。<center>当前的IP地址<br><span style="color:var(--theme-color)">${ip}</span></center>&emsp;&emsp;${posdesc}</b>`;
   } catch (err) {
-    console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
+    console.log("Pjax无法获取#welcome-info元素🙄🙄🙄");
   }
+
+  // 调用获取天气信息的函数
+  if (ipLoacation && ipLoacation.result && ipLoacation.result.location) {
+    getWeather(
+      ipLoacation.result.location.lat,
+      ipLoacation.result.location.lng
+    );
+  }
+
 }
+
+function getWeather(lat, lng) {
+  var weatherApiKey = "083ad2370e6c41e0b24fbf8dd4d455bb";
+  var weatherApiUrl = "https://devapi.qweather.com/v7/weather/now";
+
+  $.ajax({
+    type: "get",
+    url: weatherApiUrl,
+    data: {
+      key: weatherApiKey,
+      location: lng + "," + lat,
+    },
+    success: function (res) {
+      if (res.code === "200") {
+        var weatherText = res.now.text; // 天气状况的文本描述
+        var temp = res.now.temp; // 当前温度
+        updateWeatherInfo(weatherText, temp);
+      }
+    },
+    error: function (error) {
+      console.error("获取天气信息失败:", error);
+    },
+  });
+}
+
+function updateWeatherInfo(weatherText, temp) {
+  var weatherInfo = `<p>天气：${weatherText}，温度：${temp}°C</p>`;
+  // 将天气信息添加到欢迎信息中
+  document.getElementById("welcome-info").innerHTML += weatherInfo;
+}
+
 window.onload = showWelcome;
 // 如果使用了pjax在加上下面这行代码
 document.addEventListener("pjax:complete", showWelcome);

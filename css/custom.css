@@ -1,3 +1,32 @@
+:root {
+  --theme-color: rgb(102, 204, 255);
+  --blue-custom: #5ea6e5;
+  --loading-color: rgba(207, 246, 247, 0.92);
+  --border-color: #c9c9c9;
+  --color-red: rgb(241, 71, 71);
+  --color-orange: rgb(241, 162, 71);
+  --color-yellow: rgb(241, 238, 71);
+  --color-purple: rgb(179, 71, 241);
+  --color-blue: rgb(102, 204, 255);
+  --color-gray: rgb(226, 226, 226);
+  --color-green: rgb(57, 197, 187);
+  --color-whitegray: rgb(241, 241, 241);
+  --color-pink: rgb(237, 112, 155);
+  --color-black: rgb(0, 0, 0);
+  --color-darkblue: rgb(97, 100, 159);
+  --color-heoblue: rgb(66, 90, 239);
+  --btn-bg: var(--theme-color) !important;
+  --scrollbar-color: var(--theme-color) !important;
+  --border-style: 1px solid rgba(169, 169, 169, 0.7);
+  /* 代码框行数背景色 */
+  --hlnumber-bg: #282c34;
+  /* 代码框顶部背景色 */
+  --hltools-bg: #1c1c1c;
+  /* 代码框背景色 */
+  --hl-bg: #282c34;
+}
+
+
 /* 一图流相关设置 */
 /* 页脚与头图透明 */
 #footer {
@@ -452,11 +481,13 @@ h6::before {
 /* 修改全屏加载动画 */
 .loading-img {
   /* 居中头像 */
-  background: url(https://tuchuang.voooe.cn/images/2023/11/28/touxiang.webp) no-repeat center center;
+  background: url(https://tuchuang.voooe.cn/images/2023/11/28/touxiang.webp)
+    no-repeat center center;
   background-size: cover;
 }
 
 /* 自定义网站页脚样式 */
+/* tzy页脚样式 */
 /* tzy页脚样式 */
 #ft {
   max-width: 1200px;
@@ -703,69 +734,6 @@ h6::before {
     transform: scale(1.1);
   }
 }
-/* 自定义的火箭旋转动画 */
-/* #rocket {
-  animation: rocketSpin 2s linear infinite;
-}
-@keyframes rocketSpin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
-
-/* 修改个人信息卡使得头像右下角有状态标识 */
-/* .card-info-avatar .author-status-box {
-  position: absolute;
-  bottom: 0;
-  left: calc(100% - 28px);
-  width: 28px;
-  height: 28px;
-  border: 1px solid #d0d7de;
-  border-radius: 2em;
-  background-color: #f8f8f8f8;
-  transition: 0.4s;
-  overflow: hidden;
-}
-
-[data-theme="dark"] .card-info-avatar .author-status-box {
-  background-color: #222222f2;
-  border: 1px solid #5c6060;
-}
-
-.card-info-avatar .author-status-box .author-status {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 28px;
-  padding: 0 5px;
-}
-
-.card-info-avatar .author-status-box:hover {
-  width: 105px;
-}
-
-.card-info-avatar .author-status-box:hover .author-status span {
-  width: 105px;
-  margin-left: 4px;
-}
-
-.card-info-avatar .author-status-box .author-status span {
-  width: 0;
-  font-size: 12px;
-  height: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  transition: 0.4s;
-}
-
-.card-widget .card-info-avatar {
-  display: inline-block;
-  position: relative;
-} */
 
 /* 头像呼吸灯 */
 /* 头像呼吸灯 */
@@ -809,7 +777,10 @@ h6::before {
 /* 自定义表情优化 */
 #twikoo .OwO-body {
   max-width: 100% !important;
+  z-index: 1000; /* 使用一个高于页脚的值 */
 }
+
+
 /* 选择某个框 #twikoo .OwO .OwO-body .OwO-items:nth-child(1) */
 #twikoo .OwO .OwO-body .OwO-items {
   max-height: 250px !important;
@@ -885,4 +856,112 @@ h6::before {
 }
 .el-textarea__inner:focus {
   background-image: url(https://tuchuang.voooe.cn/images/2023/01/02/close.webp) !important;
+}
+
+/* 导航栏增强 */
+/* 标题增强 */
+#site-name::before {
+  opacity: 0;
+  background-color: var(--theme-color) !important;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  position: absolute;
+  top: 0 !important;
+  right: 0 !important;
+  width: 100%;
+  height: 100%;
+  content: "返回首页";
+  box-shadow: 0 0 5px var(--theme-color);
+  font-family: "Font Awesome 6 Free";
+  text-align: center;
+  color: white;
+  line-height: 34px; /*如果有溢出或者垂直不居中的现象微调一下这个参数*/
+  font-size: 18px; /*根据个人喜好*/
+}
+#site-name:hover::before {
+  opacity: 1;
+  scale: 1.03;
+}
+#site-name {
+  position: relative;
+  font-size: 24px; /*一定要把字体调大点，否则效果惨不忍睹！*/
+}
+/* 导航栏常驻 */
+.nav-fixed #nav {
+  transform: translateY(58px) !important;
+  -webkit-transform: translateY(58px) !important;
+  -moz-transform: translateY(58px) !important;
+  -ms-transform: translateY(58px) !important;
+  -o-transform: translateY(58px) !important;
+}
+#nav {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+
+
+/* 导航栏显示标题 */
+#page-name::before {
+  font-size: 18px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  color: white !important;
+  top: 0;
+  left: 0;
+  content: "&#xe6c7;";
+  background-color: var(--theme-color);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  opacity: 0;
+  box-shadow: 0 0 3px var(--theme-color);
+  line-height: 45px; /*如果垂直位置不居中可以微调此值，也可以删了*/
+}
+#page-name:hover:before {
+  opacity: 1;
+}
+#name-container {
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+#name-container:hover {
+  scale: 1.03;
+}
+#page-name {
+  position: relative;
+  padding: 10px 30px; /*如果文字间隔不合理可以微调修改，第二个是水平方向的padding，第一个是垂直的*/
+}
+#nav{
+    padding: 0 20px;
+}
+
+/* 修复滚动显示标题居中 */
+center#name-container {
+  position: absolute !important;
+  width: fit-content !important;
+  left: 30% !important;
+}
+@media screen and (max-width: 768px) {
+  center#name-container {
+    display: none;
+  }
 }
