@@ -486,7 +486,7 @@ h6::before {
 }
 
 /* 自定义网站页脚样式 */
-/* tzy页脚样式 */
+/* 页脚样式 */
 /* tzy页脚样式 */
 #ft {
   max-width: 1200px;
@@ -646,8 +646,23 @@ h6::before {
 }
 #footer-wrap {
   padding: 20px 20px;
+  z-index: 1;
 }
-
+#footer-wrap.copyright {
+  z-index: 2;
+}
+#footer-wrap.framework-info {
+  z-index: 3;
+}
+#footer-wrap.footer_custom_text {
+  z-index: 4;
+}
+#workboard {
+  z-index: 5;
+}
+#ghbdages {
+  z-index: 6;
+}
 /* 页脚心跳动画 */
 #heartbeat {
   color: red;
@@ -775,15 +790,22 @@ h6::before {
 
 /* 自定义表情优化 */
 #twikoo .OwO-body {
+  /* position: fixed; 或者 'fixed'，取决于需求 */
+  /* bottom: 100%; 使弹窗在触发元素的底部上方显示 */
+  /* left: 50%; 可能需要调整以在水平方向上居中 */
+  /* transform: translateX(-50%); 水平居中 */
   max-width: 100% !important;
-  z-index: 1000; /* 使用一个高于页脚的值 */
+  z-index: 1000;
 }
 
 /* 选择某个框 #twikoo .OwO .OwO-body .OwO-items:nth-child(1) */
 #twikoo .OwO .OwO-body .OwO-items {
-  max-height: 250px !important;
+  max-height: 200px !important;
+  z-index: 10001;
 }
-
+#twikoo .OwO-bar .OwO-packages {
+  z-index: 10002;
+}
 .OwO .OwO-body .OwO-items-image .OwO-item {
   max-width: calc(9% - 10px);
   box-sizing: content-box;
@@ -963,7 +985,7 @@ center#name-container {
 #ipAddress {
   color: var(--theme-color);
   display: none;
-  max-width: 100%;  /* 最大宽度限制 */
+  max-width: 100%; /* 最大宽度限制 */
   overflow-x: auto; /* 超出部分显示滚动条 */
   text-align: center;
   word-wrap: break-word; /* 单词换行 */

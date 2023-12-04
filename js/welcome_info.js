@@ -43,7 +43,6 @@ $.ajax({
                   ipWeather = res2;
                   // 当成功取位置及天气信息，输出对应问候语
                   WelcomeInfo();
-                  // updateWeatherInfo(weatherInfo);
                 }
               },
               error: function (error) {
@@ -118,13 +117,20 @@ function WelcomeInfo() {
   }
 
   let welcomeInfo = `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;${time_greeting}，现在 <span style="color:var(--theme-color)">${pos}</span> 的天气是 <span style="color:var(--theme-color)">${weather}</span>，气温 <span style="color:var(--theme-color)">${temp}°C</span>，${weather_greeting}${temp_greeting}<br>&emsp;&emsp;${dist_greeting}<center><span id="toggleIp" style="color:var(--theme-color);">点击查看IP</span><br><span id="ipAddress" style="color:var(--theme-color); display: none;">${ip}</span></center></b>`;
-  document.getElementById("welcome-info").innerHTML = welcomeInfo;
-  document.getElementById("toggleIp").addEventListener("click", function () {
-    var ipElement = document.getElementById("ipAddress");
-    ipElement.style.display =
-      ipElement.style.display === "none" ? "inline" : "none";
-    this.textContent =
-      ipElement.style.display === "none" ? "点击查看IP" : "点击隐藏IP";
+  // 当判定在首页才插入欢迎信息
+  $(document).ready(function () {
+    if (window.location.pathname === "/") {
+      document.getElementById("welcome-info").innerHTML = welcomeInfo;
+      document
+        .getElementById("toggleIp")
+        .addEventListener("click", function () {
+          var ipElement = document.getElementById("ipAddress");
+          ipElement.style.display =
+            ipElement.style.display === "none" ? "inline" : "none";
+          this.textContent =
+            ipElement.style.display === "none" ? "点击查看IP" : "点击隐藏IP";
+        });
+    }
   });
 }
 // <center>当前的IP地址<br><span style="color:var(--theme-color)">${ip}</span></center>
@@ -223,6 +229,7 @@ function getWeathergreeting(weather) {
   }
   return greeting;
 }
+// window.onload = WelcomeInfo;
 
 // 如果使用了pjax在加上下面这行代码
 document.addEventListener("pjax:complete", WelcomeInfo);
