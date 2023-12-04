@@ -10,26 +10,52 @@ $.ajax({
   success: function (res) {
     // 位置获取成功则继续获取对应天气
     if (res && res.result && res.result.location) {
-      console.log(res); //控制台调试输出
+      // console.log(res); //控制台调试输出
       ipLoacation = res;
+
+      // 逆地址解析
       $.ajax({
         type: "get",
-        url: "https://devapi.qweather.com/v7/grid-weather/now", // 切换为城市实时天气"https://devapi.qweather.com/v7/weather/now"
+        url: "https://apis.map.qq.com/ws/geocoder/v1/?location=",
         data: {
-          key: "083ad2370e6c41e0b24fbf8dd4d455bb",
-          location: res.result.location.lng + "," + res.result.location.lat,
+          key: "Z5QBZ-J4WCJ-2Q6FG-XQR25-IXXP7-VAFTJ",
+          location: `${ipLoacation.result.location.lat},${ipLoacation.result.location.lng}`,
+          get_poi: 1,
+          output: "jsonp",
         },
-        success: function (res2) {
-          if (res2.code === "200") {
-            console.log(res2); //控制台调试输出
-            ipWeather = res2;
-            // 当成功取位置及天气信息，输出对应问候语
-            WelcomeInfo();
-            // updateWeatherInfo(weatherInfo);
+        dataType: "jsonp",
+        success: function (data) {
+          if (data.status === 0) {
+            // 处理返回的地址信息
+            // console.log(data.result);
+            address = data.result;
+            $.ajax({
+              type: "get",
+              url: "https://devapi.qweather.com/v7/grid-weather/now", // 切换为城市实时天气"https://devapi.qweather.com/v7/weather/now"
+              data: {
+                key: "083ad2370e6c41e0b24fbf8dd4d455bb",
+                location:
+                  res.result.location.lng + "," + res.result.location.lat,
+              },
+              success: function (res2) {
+                if (res2.code === "200") {
+                  // console.log(res2); //控制台调试输出
+                  ipWeather = res2;
+                  // 当成功取位置及天气信息，输出对应问候语
+                  WelcomeInfo();
+                  // updateWeatherInfo(weatherInfo);
+                }
+              },
+              error: function (error) {
+                console.error("获取天气信息失败:", error);
+              },
+            });
+          } else {
+            console.error("获取地址信息失败:", data.message);
           }
         },
         error: function (error) {
-          console.error("获取天气信息失败:", error);
+          console.error("请求失败:", error);
         },
       });
     }
@@ -48,12 +74,12 @@ function WelcomeInfo() {
   );
   // 位置信息
   let pos;
-  if (ipLoacation.result.ad_info.district != "") {
-    pos = ipLoacation.result.ad_info.district;
-  } else if (ipLoacation.result.ad_info.city != "") {
-    pos = ipLoacation.result.ad_info.city;
-  } else if (ipLoacation.result.ad_info.province != "") {
-    pos = ipLoacation.result.ad_info.province;
+  if (address.address_component.district != "") {
+    pos = address.address_component.district;
+  } else if (address.address_component.city != "") {
+    pos = address.address_component.city;
+  } else if (address.address_component.province != "") {
+    pos = address.address_component.province;
   }
   let ip = ipLoacation.result.ip;
   // 天气信息
@@ -84,7 +110,11 @@ function WelcomeInfo() {
   } else if (dist > 100 && dist <= 500) {
     dist_greeting = ` 我们只有<span style="color:var(--theme-color)">${dist}</span>公里的距离，好像隔着一座小山，期盼有朝一日能相见。`;
   } else if (dist <= 100) {
-    dist_greeting = ` 我们近在咫尺，只隔了<span style="color:var(--theme-color)">${dist}</span>公里，没准哪天就在<span style="color:var(--theme-color)">${pos}</span>偶遇了。`;
+    // 生成一个随机索引
+    // let randomIndex = Math.floor(Math.random() * address.pois.length);
+    // // 使用这个索引来获取一个随机的POI
+    // let randomPoi = address.pois[randomIndex].title;
+    dist_greeting = ` 我们近在咫尺，只隔了<span style="color:var(--theme-color)">${dist}</span>公里，没准哪天就在<span style="color:var(--theme-color)">${pos} </span>偶遇了。`;
   }
 
   let welcomeInfo = `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;${time_greeting}，现在 <span style="color:var(--theme-color)">${pos}</span> 的天气是 <span style="color:var(--theme-color)">${weather}</span>，气温 <span style="color:var(--theme-color)">${temp}°C</span>，${weather_greeting}${temp_greeting}<br>&emsp;&emsp;${dist_greeting}<center><span id="toggleIp" style="color:var(--theme-color);">点击查看IP</span><br><span id="ipAddress" style="color:var(--theme-color); display: none;">${ip}</span></center></b>`;
@@ -96,8 +126,6 @@ function WelcomeInfo() {
     this.textContent =
       ipElement.style.display === "none" ? "点击查看IP" : "点击隐藏IP";
   });
-
-
 }
 // <center>当前的IP地址<br><span style="color:var(--theme-color)">${ip}</span></center>
 function getDistance(e1, n1, e2, n2) {

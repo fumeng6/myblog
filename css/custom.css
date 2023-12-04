@@ -967,5 +967,5 @@ center#name-container {
   overflow-x: auto; /* 超出部分显示滚动条 */
   text-align: center;
   word-wrap: break-word; /* 单词换行 */
-  font-size: 0.8em; /* 字体大小调整 */
+  /*font-size: 0.8em;  字体大小调整 */
 }
