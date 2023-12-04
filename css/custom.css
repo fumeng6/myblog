@@ -26,7 +26,6 @@
   --hl-bg: #282c34;
 }
 
-
 /* 一图流相关设置 */
 /* 页脚与头图透明 */
 #footer {
@@ -780,7 +779,6 @@ h6::before {
   z-index: 1000; /* 使用一个高于页脚的值 */
 }
 
-
 /* 选择某个框 #twikoo .OwO .OwO-body .OwO-items:nth-child(1) */
 #twikoo .OwO .OwO-body .OwO-items {
   max-height: 250px !important;
@@ -878,7 +876,7 @@ h6::before {
   right: 0 !important;
   width: 100%;
   height: 100%;
-  content: "返回首页";
+  content: "首页";
   box-shadow: 0 0 5px var(--theme-color);
   font-family: "Font Awesome 6 Free";
   text-align: center;
@@ -910,8 +908,6 @@ h6::before {
   -o-transition: none !important;
 }
 
-
-
 /* 导航栏显示标题 */
 #page-name::before {
   font-size: 18px;
@@ -922,13 +918,14 @@ h6::before {
   color: white !important;
   top: 0;
   left: 0;
-  content: "&#xe6c7;";
+  content: "返回顶部";
   background-color: var(--theme-color);
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
+  text-align: center;
   opacity: 0;
   box-shadow: 0 0 3px var(--theme-color);
   line-height: 45px; /*如果垂直位置不居中可以微调此值，也可以删了*/
@@ -950,18 +947,25 @@ h6::before {
   position: relative;
   padding: 10px 30px; /*如果文字间隔不合理可以微调修改，第二个是水平方向的padding，第一个是垂直的*/
 }
-#nav{
-    padding: 0 20px;
+#nav {
+  padding: 0 20px;
 }
 
-/* 修复滚动显示标题居中 */
+/* 标题居中 */
 center#name-container {
-  position: absolute !important;
-  width: fit-content !important;
-  left: 30% !important;
+  position: absolute;
+  left: 50%; /* 将元素的左边距设置为容器宽度的一半 */
+  transform: translateX(-50%); /* 向左移动元素自身宽度的一半，以实现准确居中 */
+  width: fit-content;
 }
-@media screen and (max-width: 768px) {
-  center#name-container {
-    display: none;
-  }
+
+/* 处理欢迎信息中IP地址过长 */
+#ipAddress {
+  color: var(--theme-color);
+  display: none;
+  max-width: 100%;  /* 最大宽度限制 */
+  overflow-x: auto; /* 超出部分显示滚动条 */
+  text-align: center;
+  word-wrap: break-word; /* 单词换行 */
+  font-size: 0.8em; /* 字体大小调整 */
 }

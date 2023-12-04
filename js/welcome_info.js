@@ -10,7 +10,7 @@ $.ajax({
   success: function (res) {
     // 位置获取成功则继续获取对应天气
     if (res && res.result && res.result.location) {
-      //   console.log(res);//控制台调试输出
+      console.log(res); //控制台调试输出
       ipLoacation = res;
       $.ajax({
         type: "get",
@@ -21,7 +21,7 @@ $.ajax({
         },
         success: function (res2) {
           if (res2.code === "200") {
-            // console.log(res2);//控制台调试输出
+            console.log(res2); //控制台调试输出
             ipWeather = res2;
             // 当成功取位置及天气信息，输出对应问候语
             WelcomeInfo();
@@ -65,9 +65,9 @@ function WelcomeInfo() {
   // 添加体感温度的问候
   let temp_greeting;
   if (temp <= 10) {
-    temp_greeting = `，气温只有${temp}°C，记得添衣保暖哦~`;
+    temp_greeting = `气温只有${temp}°C，记得添衣保暖哦~`;
   } else if (temp >= 30) {
-    temp_greeting = `，气温高达${temp}°C，记得多补充水分，尽量待在阴凉处~`;
+    temp_greeting = `气温高达${temp}°C，记得多补充水分，尽量待在阴凉处~`;
   } else {
     temp_greeting = "";
   }
@@ -87,10 +87,19 @@ function WelcomeInfo() {
     dist_greeting = ` 我们近在咫尺，只隔了<span style="color:var(--theme-color)">${dist}</span>公里，没准哪天就在<span style="color:var(--theme-color)">${pos}</span>偶遇了。`;
   }
 
-  let welcomeInfo = `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;${time_greeting}，现在 <span style="color:var(--theme-color)">${pos}</span> 的天气是 <span style="color:var(--theme-color)">${weather}</span>，气温 <span style="color:var(--theme-color)">${temp}°C</span>，${weather_greeting}${temp_greeting}<br>&emsp;&emsp;${dist_greeting}<center>当前的IP地址<br><span style="color:var(--theme-color)">${ip}</span></center></b>`;
+  let welcomeInfo = `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;${time_greeting}，现在 <span style="color:var(--theme-color)">${pos}</span> 的天气是 <span style="color:var(--theme-color)">${weather}</span>，气温 <span style="color:var(--theme-color)">${temp}°C</span>，${weather_greeting}${temp_greeting}<br>&emsp;&emsp;${dist_greeting}<center><span id="toggleIp" style="color:var(--theme-color);">点击查看IP</span><br><span id="ipAddress" style="color:var(--theme-color); display: none;">${ip}</span></center></b>`;
   document.getElementById("welcome-info").innerHTML = welcomeInfo;
-}
+  document.getElementById("toggleIp").addEventListener("click", function () {
+    var ipElement = document.getElementById("ipAddress");
+    ipElement.style.display =
+      ipElement.style.display === "none" ? "inline" : "none";
+    this.textContent =
+      ipElement.style.display === "none" ? "点击查看IP" : "点击隐藏IP";
+  });
 
+
+}
+// <center>当前的IP地址<br><span style="color:var(--theme-color)">${ip}</span></center>
 function getDistance(e1, n1, e2, n2) {
   const R = 6371; // 地球半径，单位为公里
   const rad = Math.PI / 180;
@@ -186,6 +195,6 @@ function getWeathergreeting(weather) {
   }
   return greeting;
 }
-// window.onload = WelcomeInfo;
+
 // 如果使用了pjax在加上下面这行代码
 document.addEventListener("pjax:complete", WelcomeInfo);
