@@ -1,0 +1,6 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.maoye.xyz/sitemap.txt
+Sitemap: https://www.maoye.xyz/baidusitemap.txt

@@ -649,19 +649,19 @@ h6::before {
   z-index: 1;
 }
 #footer-wrap.copyright {
-  z-index: 2;
+  z-index: -1;
 }
 #footer-wrap.framework-info {
-  z-index: 3;
+  z-index: -1;
 }
 #footer-wrap.footer_custom_text {
-  z-index: 4;
+  z-index: -1;
 }
 #workboard {
-  z-index: 5;
+  z-index: -1;
 }
 #ghbdages {
-  z-index: 6;
+  z-index: 1;
 }
 /* 页脚心跳动画 */
 #heartbeat {
