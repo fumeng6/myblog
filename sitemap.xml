@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://maoye.xyz/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</loc>
+    
+    <lastmod>2024-05-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://maoye.xyz/posts/Python%E7%AE%80%E5%8D%95GUI%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/</loc>
     
     <lastmod>2024-05-08</lastmod>
@@ -92,15 +101,6 @@
   </url>
   
   <url>
-    <loc>https://maoye.xyz/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</loc>
-    
-    <lastmod>2024-05-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://maoye.xyz/posts/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2024-05-08</lastmod>
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://maoye.xyz/tags/</loc>
+    <loc>https://maoye.xyz/tags/index.html</loc>
     
     <lastmod>2024-04-20</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://maoye.xyz/categories/</loc>
+    <loc>https://maoye.xyz/categories/index.html</loc>
     
     <lastmod>2024-04-20</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://maoye.xyz/album/</loc>
+    <loc>https://maoye.xyz/album/index.html</loc>
     
     <lastmod>2024-04-20</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://maoye.xyz/album/%E5%A3%81%E7%BA%B8/</loc>
+    <loc>https://maoye.xyz/album/%E5%A3%81%E7%BA%B8/index.html</loc>
     
     <lastmod>2024-04-20</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://maoye.xyz/play/</loc>
+    <loc>https://maoye.xyz/play/index.html</loc>
     
     <lastmod>2024-04-20</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://maoye.xyz/about/</loc>
+    <loc>https://maoye.xyz/about/index.html</loc>
     
     <lastmod>2024-04-17</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://maoye.xyz/message/</loc>
+    <loc>https://maoye.xyz/message/index.html</loc>
     
     <lastmod>2024-04-06</lastmod>
     
@@ -193,7 +193,7 @@
 
   <url>
     <loc>https://maoye.xyz/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -201,119 +201,112 @@
   
   <url>
     <loc>https://maoye.xyz/tags/Conda/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/Python%E7%8E%AF%E5%A2%83%E5%AF%BC%E5%87%BA/</loc>
-    <lastmod>2024-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://maoye.xyz/tags/Git/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/Matplotlib%E7%BB%98%E5%9B%BE/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://maoye.xyz/tags/pip/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <loc>https://maoye.xyz/tags/Git/</loc>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/Python/</loc>
-    <lastmod>2024-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://maoye.xyz/tags/GUI%E7%A8%8B%E5%BA%8F/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://maoye.xyz/tags/WSL/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <loc>https://maoye.xyz/tags/pip/</loc>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://maoye.xyz/tags/Linux/</loc>
-    <lastmod>2024-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://maoye.xyz/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <loc>https://maoye.xyz/tags/GUI%E7%A8%8B%E5%BA%8F/</loc>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/Markdown/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://maoye.xyz/tags/WSL/</loc>
+    <lastmod>2024-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://maoye.xyz/tags/Linux/</loc>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/hexo/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/Blog/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://maoye.xyz/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</loc>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2024-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://maoye.xyz/tags/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -322,21 +315,21 @@
   
   <url>
     <loc>https://maoye.xyz/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://maoye.xyz/categories/AI%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
